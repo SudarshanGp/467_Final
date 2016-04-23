@@ -7,7 +7,6 @@ app.config.from_object(__name__)
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-
     parser.parse_file("static/res/nihal.csv")
     return render_template('base.html')
 
