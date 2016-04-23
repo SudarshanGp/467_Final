@@ -1,4 +1,4 @@
-sys.path.insert(2, '/usr/local/lib/python2.7/site-packages')
+
 from flask import Flask, render_template, request, jsonify, send_from_directory, redirect, url_for
 
 app = Flask(__name__)
