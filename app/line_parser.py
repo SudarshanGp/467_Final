@@ -92,16 +92,43 @@ def parse_data(data):
 							data_dict[row['Date']]['Drinks'] = [temp_dict]
 	return data_dict
 
+def add_to_list(data):
+	global id_counter
+	global json_data
+
 data_food = pd.read_csv('static/res/curr_dataset_food_up.csv')
 for col in data_food.columns:
     if 'Unnamed' in col:
         del data_food[col]
 data_sudarshan = pd.read_csv('static/res/curr_dataset_food_sudarshan.csv')
-for col in data_susan.columns:
+for col in data_sudarshan.columns:
     if 'Unnamed' in col:
         del data_sudarshan[col]
 data_sudarshan = parse_data(data_sudarshan)
 
+data_nihal = pd.read_csv('static/res/curr_dataset_food_nihal.csv')
+for col in data_nihal.columns:
+    if 'Unnamed' in col:
+        del data_nihal[col]
+data_nihal = parse_data(data_nihal)
 
+data_susan = pd.read_csv('static/res/curr_dataset_food_susan.csv')
+for col in data_susan.columns:
+    if 'Unnamed' in col:
+        del data_susan[col]
+data_susan = parse_data(data_susan)
 
-pprint.pprint(data)
+data_aadhya = pd.read_csv('static/res/curr_dataset_food_aadhya.csv')
+for col in data_aadhya.columns:
+    if 'Unnamed' in col:
+        del data_aadhya[col]
+data_aadhya = parse_data(data_aadhya)
+
+data_kanishk = pd.read_csv('static/res/curr_dataset_food_kanishk.csv')
+for col in data_kanishk.columns:
+    if 'Unnamed' in col:
+        del data_kanishk[col]
+data_kanishk = parse_data(data_kanishk)
+
+id_counter = 1000
+json_data = []
