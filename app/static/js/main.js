@@ -59,26 +59,6 @@ var dimensions = [
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
   {
-    key: "Saturated (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Polyunsaturated (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Monounsaturated (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Trans (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
     key: "Cholesterol (mg)",
     type: types["Number"],
     scale: d3.scale.sqrt().range([innerHeight, 0])
@@ -89,17 +69,7 @@ var dimensions = [
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
   {
-    key: "Potassium (mg)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
     key: "Carbohydrates (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Dietary Fiber (g)",
     type: types["Number"],
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
@@ -110,16 +80,6 @@ var dimensions = [
   },
   {
     key: "Protein (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Vitamin A (%)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Vitamin C (%)",
     type: types["Number"],
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
@@ -140,7 +100,7 @@ var dimensions = [
     axis: d3.svg.axis().orient("right")
       .tickFormat(function(d,i) {
         if (d == null) return "(null)";
-        return i % 5 == 0 ? d.slice(0,22) : "";
+        return d.slice(0,22);
       })
   }
 ];
@@ -170,7 +130,7 @@ ctx.globalCompositeOperation = 'darken';
 ctx.globalAlpha = 0.15;
 ctx.lineWidth = 1.5;
 ctx.scale(devicePixelRatio, devicePixelRatio);
-// var output = d3.select("body").append("pre");
+var output = d3.select("body").append("pre");
 var axes = svg.selectAll(".axis")
     .data(dimensions)
   .enter().append("g")
@@ -231,7 +191,7 @@ d3.csv("../static/res/nutrient_1.csv", function(error, data) {
   d3.selectAll(".axis.Person .tick text")
     .style("fill", color);
     
-  // output.text(d3.tsv.format(data.slice(0,24)));
+  output.text(d3.tsv.format(data.slice(0,24)));
   function project(d) {
     return dimensions.map(function(p,i) {
       // check if data element has property and contains a value
@@ -317,6 +277,6 @@ d3.csv("../static/res/nutrient_1.csv", function(error, data) {
     ctx.clearRect(0,0,width,height);
     ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
     render(selected);
-    // output.text(d3.tsv.format(selected.slice(0,24)));
+    output.text(d3.tsv.format(selected.slice(0,24)));
   }
 });
