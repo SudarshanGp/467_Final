@@ -4,7 +4,7 @@ var margin = {top: 66, right: 110, bottom: 20, left: 140},
     innerHeight = height - 2;
 var devicePixelRatio = window.devicePixelRatio || 1;
 var color = d3.scale.ordinal()
-  .range(["#FFD20E","#701AB0","#FF1B3B","#4E85FF","#2ca02c"]);
+  .range(["#FF7F0E","#701AB0","#FF1B3B","#4E85FF","#2ca02c"]);
 var types = {
   "Number": {
     key: "Number",
