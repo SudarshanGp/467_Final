@@ -2,13 +2,13 @@ import csv
 import pandas as pd
 from pprint import pprint
 def parse_file(file_path):
-    food_data = pd.DataFrame.from_csv("static/res/curr_dataset_food.csv").fillna("None")
+    food_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_up.csv").fillna("None")
     food_data = food_data.T
     Aadhya_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_aadhya.csv").fillna("None").T.to_dict()
     Susan_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_susan.csv").fillna("None").T.to_dict()
     Nihal_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_nihal.csv").fillna("None").T.to_dict()
     Sudarshan_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_sudarshan.csv").fillna("None").T.to_dict()
-    # Kanishk_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_kanishk.csv").fillna("None").to_dict()
+    Kanishk_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_kanishk.csv").fillna("None").T.to_dict()
 
     # pprint(Aadhya_data.keys())
     food_data = food_data.T
@@ -50,8 +50,8 @@ def parse_file(file_path):
     for timestamp in Sudarshan_data:
         people_dict["Sudarshan"][timestamp] = Sudarshan_data[timestamp]
 
-    # for timestamp in Kanishk_data:
-    #     people_dict["Kanishk"][timestamp] = Aadhya_data[timestamp]
+    for timestamp in Kanishk_data:
+        people_dict["Kanishk"][timestamp] = Kanishk_data[timestamp]
 
     pprint(people_dict)
 if __name__ == "__main__":
