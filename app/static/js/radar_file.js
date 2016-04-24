@@ -20,7 +20,7 @@ function foo(file_path){
 			//////////////////////////////////////////////////////////////
 
 			var color = d3.scale.ordinal()
-				.range(["#D9B435","#F76D0C","#CC3241","#7C15B0","#4249A1","#93D92D", "#B0495F","#0010B0"]);
+				.range(["#7CDB39","#FFE100","#FF3529","#B21AE8","#00DFFC","#93D92D", "#B0495F","#0010B0"]);
 
 			var radarChartOptions = {
 			  w: width,
