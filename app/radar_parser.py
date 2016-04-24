@@ -1,6 +1,38 @@
 import csv
 import pandas as pd
 from pprint import pprint
+
+
+def make_json(data):
+
+    # Cost, Calories, Fat, Cholestrol, Sodium, Protein, Iron, Carbohydrates
+
+
+def dict_creator(people_dict, name, timestamp):
+    for meal_type in people_dict[name][timestamp]:
+        meals = people_dict[name][timestamp][meal_type]
+        meal_list = list(meals.split(','))
+        meals_list = []
+        for food in meal_list:
+            meal_dict = {}
+            meal_dict["name"] = food
+            meals_list.append(meal_dict)
+        people_dict[name][timestamp][meal_type] = meals_list
+
+def insert_food_info(people_dict, name, timestamp, food_info):
+    for meal_type in people_dict[name][timestamp]:
+        meals = people_dict[name][timestamp][meal_type]
+        for meal in meals:
+            if meal["name"] != 'None':
+                val = meal["name"]
+                if val.startswith(" "):
+                    val = meal["name"][1:]
+                if val.endswith(" "):
+                    val = val[:-1]
+                meal["value"] = food_info[val]
+
+
+
 def parse_file(file_path):
     food_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_up.csv").fillna("None")
     food_data = food_data.T
@@ -25,10 +57,17 @@ def parse_file(file_path):
             if param != "Restaurant" and param != "Cost":
                 food_info[food_item][param] = float(food_dict[param][food_item])
             elif param == "Cost":
-                food_info[food_item][param] = float(food_dict[param][food_item][1:])
+                food_info[food_item][param] = float(food_dict[param][food_item])
             else:
                 food_info[food_item][param] = food_dict[param][food_item]
 
+    people_data = {
+        "Aadhya":Aadhya_data,
+        "Kanishk":Kanishk_data,
+        "Nihal":Nihal_data,
+        "Sudarshan":Sudarshan_data,
+        "Susan":Susan_data
+    }
     people_dict = {
         "Aadhya":{},
         "Kanishk":{},
@@ -37,21 +76,13 @@ def parse_file(file_path):
         "Susan":{}
     }
 
-    for timestamp in Aadhya_data:
+    for person, person_data in people_data.iteritems():
+        for timestamp in person_data:
+            people_dict[person][timestamp] = person_data[timestamp]
+            dict_creator(people_dict, person, timestamp)
+            insert_food_info(people_dict, person, timestamp, food_info)
 
-        people_dict["Aadhya"][timestamp] = Aadhya_data[timestamp]
 
-    for timestamp in Nihal_data:
-        people_dict["Nihal"][timestamp] = Nihal_data[timestamp]
-
-    for timestamp in Susan_data:
-        people_dict["Susan"][timestamp] = Susan_data[timestamp]
-
-    for timestamp in Sudarshan_data:
-        people_dict["Sudarshan"][timestamp] = Sudarshan_data[timestamp]
-
-    for timestamp in Kanishk_data:
-        people_dict["Kanishk"][timestamp] = Kanishk_data[timestamp]
 
     pprint(people_dict)
 if __name__ == "__main__":
