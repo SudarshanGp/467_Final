@@ -1,0 +1,202 @@
+[
+    {
+        "key": "Nihal",
+        "values": [
+            {
+                "device": "Nihal",
+                "reason": "Calories",
+                "value": 0.49402941176470583
+            },
+            {
+                "device": "Nihal",
+                "reason": "Cost",
+                "value": 0.21441147320221857
+            },
+            {
+                "device": "Nihal",
+                "reason": "Fat (g)",
+                "value": 0.7994570135746606
+            },
+            {
+                "device": "Nihal",
+                "reason": "Cholesterol (mg)",
+                "value": 0.9014705882352941
+            },
+            {
+                "device": "Nihal",
+                "reason": "Sodium (mg)",
+                "value": 0.6723039215686274
+            },
+            {
+                "device": "Nihal",
+                "reason": "Protein (g)",
+                "value": 0.4642647058823529
+            },
+            {
+                "device": "Nihal",
+                "reason": "Iron(%)",
+                "value": 0.4219327731092437
+            }
+        ]
+    },
+    {
+        "key": "Sudarshan",
+        "values": [
+            {
+                "device": "Sudarshan",
+                "reason": "Calories",
+                "value": 0.7157058823529412
+            },
+            {
+                "device": "Sudarshan",
+                "reason": "Cost",
+                "value": 0.2505558265804835
+            },
+            {
+                "device": "Sudarshan",
+                "reason": "Fat (g)",
+                "value": 0.7721266968325792
+            },
+            {
+                "device": "Sudarshan",
+                "reason": "Cholesterol (mg)",
+                "value": 0.6549019607843137
+            },
+            {
+                "device": "Sudarshan",
+                "reason": "Sodium (mg)",
+                "value": 0.453063725490196
+            },
+            {
+                "device": "Sudarshan",
+                "reason": "Protein (g)",
+                "value": 0.6241911764705883
+            },
+            {
+                "device": "Sudarshan",
+                "reason": "Iron(%)",
+                "value": 0.5306722689075629
+            }
+        ]
+    },
+    {
+        "key": "Aadhya",
+        "values": [
+            {
+                "device": "Aadhya",
+                "reason": "Calories",
+                "value": 0.5284705882352941
+            },
+            {
+                "device": "Aadhya",
+                "reason": "Cost",
+                "value": 0.2187363275590142
+            },
+            {
+                "device": "Aadhya",
+                "reason": "Fat (g)",
+                "value": 0.8910407239819004
+            },
+            {
+                "device": "Aadhya",
+                "reason": "Cholesterol (mg)",
+                "value": 0.7475490196078431
+            },
+            {
+                "device": "Aadhya",
+                "reason": "Sodium (mg)",
+                "value": 0.7967524509803922
+            },
+            {
+                "device": "Aadhya",
+                "reason": "Protein (g)",
+                "value": 0.4455147058823529
+            },
+            {
+                "device": "Aadhya",
+                "reason": "Iron(%)",
+                "value": 0.34277310924369747
+            }
+        ]
+    },
+    {
+        "key": "Kanishk",
+        "values": [
+            {
+                "device": "Kanishk",
+                "reason": "Calories",
+                "value": 0.4565
+            },
+            {
+                "device": "Kanishk",
+                "reason": "Cost",
+                "value": 0.18332333562509487
+            },
+            {
+                "device": "Kanishk",
+                "reason": "Fat (g)",
+                "value": 0.6292307692307693
+            },
+            {
+                "device": "Kanishk",
+                "reason": "Cholesterol (mg)",
+                "value": 0.271875
+            },
+            {
+                "device": "Kanishk",
+                "reason": "Sodium (mg)",
+                "value": 0.6276302083333334
+            },
+            {
+                "device": "Kanishk",
+                "reason": "Protein (g)",
+                "value": 0.63125
+            },
+            {
+                "device": "Kanishk",
+                "reason": "Iron(%)",
+                "value": 0.3053571428571429
+            }
+        ]
+    },
+    {
+        "key": "Susan",
+        "values": [
+            {
+                "device": "Susan",
+                "reason": "Calories",
+                "value": 0.6245294117647059
+            },
+            {
+                "device": "Susan",
+                "reason": "Cost",
+                "value": 0.1329730370331888
+            },
+            {
+                "device": "Susan",
+                "reason": "Fat (g)",
+                "value": 0.6433484162895929
+            },
+            {
+                "device": "Susan",
+                "reason": "Cholesterol (mg)",
+                "value": 0.27662745098039215
+            },
+            {
+                "device": "Susan",
+                "reason": "Sodium (mg)",
+                "value": 0.7996470588235292
+            },
+            {
+                "device": "Susan",
+                "reason": "Protein (g)",
+                "value": 0.6781617647058824
+            },
+            {
+                "device": "Susan",
+                "reason": "Iron(%)",
+                "value": 0.8359663865546219
+            }
+        ]
+    }
+]
