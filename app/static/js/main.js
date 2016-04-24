@@ -1,15 +1,14 @@
-var margin = {top: 66, right: 110, bottom: 20, left: 100},
+var margin = {top: 66, right: 110, bottom: 20, left: 140},
     width = document.body.clientWidth - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     innerHeight = height - 2;
 var devicePixelRatio = window.devicePixelRatio || 1;
 var color = d3.scale.ordinal()
-  .range(["#5DA5B3","#D58323","#DD6CA7","#54AF52","#8C92E8","#E15E5A","#725D82","#776327","#50AB84","#954D56","#AB9C27","#517C3F","#9D5130","#357468","#5E9ACF","#C47DCB","#7D9E33","#DB7F85","#BA89AD","#4C6C86","#B59248","#D8597D","#944F7E","#D67D4B","#8F86C2"]);
+  .range(["#FF1B3B","#4E85FF","#2ca02c"]);
 var types = {
   "Number": {
     key: "Number",
     coerce: function(d) {
-      console.log(d);
      return +d; },
     extent: d3.extent,
     within: function(d, extent) {
@@ -33,8 +32,8 @@ var types = {
 };
 var dimensions = [
   {
-    key: "Person",
-    description: "Person",
+    key: "Range",
+    description: "Price Range",
     type: types["String"],
     axis: d3.svg.axis().orient("left")
       .tickFormat(function(d,i) {
@@ -186,7 +185,7 @@ d3.json("../static/res/line_data.json", function(error, data) {
     .selectAll("rect")
       .attr("x", -8)
       .attr("width", 16);
-  d3.selectAll(".axis.Person .tick text")
+  d3.selectAll(".axis.Range .tick text")
     .style("fill", color);
     
   output.text(d3.tsv.format(data));
@@ -201,7 +200,8 @@ d3.json("../static/res/line_data.json", function(error, data) {
     });
   };
   function draw(d) {
-    ctx.strokeStyle = color(d.Person);
+    console.log(d);
+    ctx.strokeStyle = color(d.Range);
     ctx.beginPath();
     var coords = project(d);
     coords.forEach(function(p,i) {
