@@ -3,6 +3,7 @@ sys.path.insert(2, '/usr/local/lib/python2.7/site-packages')
 import pandas as pd
 import numpy as np
 import pprint as pprint
+import itertools
 
 def parse_data(data):
 	data_dict = {}
@@ -92,9 +93,14 @@ def parse_data(data):
 							data_dict[row['Date']]['Drinks'] = [temp_dict]
 	return data_dict
 
-def add_to_list(data):
+def add_to_list(data, name):
 	global id_counter
 	global json_data
+	for key, value in data.iteritems():
+		# Each value is a day
+		print(key)
+		print(value)
+
 
 data_food = pd.read_csv('static/res/curr_dataset_food_up.csv')
 for col in data_food.columns:
@@ -132,3 +138,4 @@ data_kanishk = parse_data(data_kanishk)
 
 id_counter = 1000
 json_data = []
+add_to_list(data_sudarshan, "Sudarshan Govindaprasad")

@@ -100,7 +100,7 @@ var dimensions = [
     axis: d3.svg.axis().orient("right")
       .tickFormat(function(d,i) {
         if (d == null) return "(null)";
-        return i % 5 == 0 ? d.slice(0,22) : "";
+        return d.slice(0,22);
       })
   }
 ];
