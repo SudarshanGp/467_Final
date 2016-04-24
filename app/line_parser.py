@@ -112,10 +112,10 @@ def newDict (data):
 				newDict['Range'] = 'Low'
 			elif data[val] >= 4 and data[val] < 8:
 				newDict[val] = data[val]
-				newDict['Range'] = 'Medium'
+				newDict['Range'] = 'Fair'
 			else:
 				newDict[val] = data[val]
-				newDict['Range'] = 'High'
+				newDict['Range'] = 'Expensive'
 	return newDict
 
 
