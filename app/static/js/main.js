@@ -59,26 +59,6 @@ var dimensions = [
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
   {
-    key: "Saturated (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Polyunsaturated (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Monounsaturated (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Trans (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
     key: "Cholesterol (mg)",
     type: types["Number"],
     scale: d3.scale.sqrt().range([innerHeight, 0])
@@ -89,17 +69,7 @@ var dimensions = [
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
   {
-    key: "Potassium (mg)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
     key: "Carbohydrates (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Dietary Fiber (g)",
     type: types["Number"],
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
@@ -110,16 +80,6 @@ var dimensions = [
   },
   {
     key: "Protein (g)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Vitamin A (%)",
-    type: types["Number"],
-    scale: d3.scale.sqrt().range([innerHeight, 0])
-  },
-  {
-    key: "Vitamin C (%)",
     type: types["Number"],
     scale: d3.scale.sqrt().range([innerHeight, 0])
   },
