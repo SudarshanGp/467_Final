@@ -10,5 +10,8 @@ def index():
     # radar_parser.parse_file("static/res/nihal.csv")
     return render_template('base.html')
 
+@app.route('/radar', methods=['GET', 'POST'])
+def radar():
+    return render_template('radar.html')
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
