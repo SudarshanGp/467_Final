@@ -63,7 +63,7 @@ def make_json_data(people_data):
     total_data[PROTEIN] = 80.00
     total_data[IRON] = 70.00
     total_data[CARBOHYDRATES] = 300
-
+    total_data[COST] = 30
     for person, person_data in people_data.iteritems():
         for nutrients in PARAMS:
             avg_food_intake[person][nutrients] /= total_data[nutrients]
