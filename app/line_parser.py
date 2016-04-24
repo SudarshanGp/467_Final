@@ -102,10 +102,17 @@ def newDict (data):
 	newDict = {}
 	for key, val in enumerate(data):
 		if val == 'Food' or val == 'Sugars (g)' or val == 'Carbohydrates (g)' or \
-		val == 'Protein (g)' or val == 'Cost' or val == 'Calories' \
+		val == 'Protein (g)' or val == 'Calories' \
 		or val == 'Fat (g)' or val == 'Cholesterol (mg)' or val == 'Sodium (mg)' \
 		or val == 'Calcium (%)' or val == 'Iron(%)' or val == 'Restaurant':
 			newDict[val] = data[val]
+		if val == 'Cost':
+			if data[val] >= 0 and data[val] < 4:
+				newDict[val] = 'Low'
+			elif data[val] >= 4 and data[val] < 8:
+				newDict[val] = 'Medium'
+			else:
+				newDict[val] = 'High'
 	return newDict
 
 
