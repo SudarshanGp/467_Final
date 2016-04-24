@@ -108,11 +108,14 @@ def newDict (data):
 			newDict[val] = data[val]
 		if val == 'Cost':
 			if data[val] >= 0 and data[val] < 4:
-				newDict[val] = 'Low'
+				newDict[val] = data[val]
+				newDict['Range'] = 'Low'
 			elif data[val] >= 4 and data[val] < 8:
-				newDict[val] = 'Medium'
+				newDict[val] = data[val]
+				newDict['Range'] = 'Medium'
 			else:
-				newDict[val] = 'High'
+				newDict[val] = data[val]
+				newDict['Range'] = 'High'
 	return newDict
 
 

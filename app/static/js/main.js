@@ -32,15 +32,19 @@ var types = {
 };
 var dimensions = [
   {
-    key: "Cost",
-    description: "Cost",
+    key: "Range",
+    description: "Price Range",
     type: types["String"],
     axis: d3.svg.axis().orient("left")
       .tickFormat(function(d,i) {
         return d;
       })
   },
-
+  {
+    key: "Cost",
+    type: types["Number"],
+    scale: d3.scale.sqrt().range([innerHeight, 0])
+  },
   {
     key: "Calories",
     type: types["Number"],
@@ -181,7 +185,7 @@ d3.json("../static/res/line_data.json", function(error, data) {
     .selectAll("rect")
       .attr("x", -8)
       .attr("width", 16);
-  d3.selectAll(".axis.Cost .tick text")
+  d3.selectAll(".axis.Range .tick text")
     .style("fill", color);
     
   output.text(d3.tsv.format(data));
@@ -196,7 +200,8 @@ d3.json("../static/res/line_data.json", function(error, data) {
     });
   };
   function draw(d) {
-    ctx.strokeStyle = color(d.Cost);
+    console.log(d);
+    ctx.strokeStyle = color(d.Range);
     ctx.beginPath();
     var coords = project(d);
     coords.forEach(function(p,i) {
