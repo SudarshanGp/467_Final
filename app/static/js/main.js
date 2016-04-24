@@ -1,15 +1,14 @@
-var margin = {top: 66, right: 110, bottom: 20, left: 130},
+var margin = {top: 66, right: 110, bottom: 20, left: 140},
     width = document.body.clientWidth - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     innerHeight = height - 2;
 var devicePixelRatio = window.devicePixelRatio || 1;
 var color = d3.scale.ordinal()
-  .range(["#5DA5B3","#D58323","#DD6CA7","#D67D4B","#8F86C2"]);
+  .range(["#FFD20E","#701AB0","#FF1B3B","#4E85FF","#2ca02c"]);
 var types = {
   "Number": {
     key: "Number",
     coerce: function(d) {
-      console.log(d);
      return +d; },
     extent: d3.extent,
     within: function(d, extent) {
