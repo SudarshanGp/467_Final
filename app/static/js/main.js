@@ -1,6 +1,6 @@
-var margin = {top: 66, right: 110, bottom: 20, left: 188},
+var margin = {top: 66, right: 110, bottom: 20, left: 100},
     width = document.body.clientWidth - margin.left - margin.right,
-    height = 340 - margin.top - margin.bottom,
+    height = 500 - margin.top - margin.bottom,
     innerHeight = height - 2;
 var devicePixelRatio = window.devicePixelRatio || 1;
 var color = d3.scale.ordinal()
@@ -8,9 +8,12 @@ var color = d3.scale.ordinal()
 var types = {
   "Number": {
     key: "Number",
-    coerce: function(d) { return +d; },
+    coerce: function(d) {
+      console.log(d);
+     return +d; },
     extent: d3.extent,
-    within: function(d, extent) { return extent[0] <= d && d <= extent[1]; },
+    within: function(d, extent) {
+     return extent[0] <= d && d <= extent[1]; },
     defaultScale: d3.scale.linear().range([innerHeight, 0])
   },
   "String": {
@@ -37,11 +40,6 @@ var dimensions = [
       .tickFormat(function(d,i) {
         return d;
       })
-  },
-  {
-    key: "Food",
-    description: "Food",
-    type: types["String"]
   },
   {
     key: "Cost",
@@ -100,7 +98,7 @@ var dimensions = [
     axis: d3.svg.axis().orient("right")
       .tickFormat(function(d,i) {
         if (d == null) return "(null)";
-        return d.slice(0,22);
+        return d;
       })
   }
 ];
@@ -139,11 +137,11 @@ var axes = svg.selectAll(".axis")
 d3.json("../static/res/line_data.json", function(error, data) {
   if (error) throw error;
   // shuffle the data!
-  data = d3.shuffle(data);
+  // data = d3.shuffle(data);
   data.forEach(function(d) {
-    dimensions.forEach(function(p) {
-      d[p.key] = !d[p.key] ? null : p.type.coerce(d[p.key]);
-    });
+    // dimensions.forEach(function(p) {
+    //   d[p.key] = !d[p.key] ? null : p.type.coerce(d[p.key]);
+    // });
     // truncate long text strings to fit in data table
     for (var key in d) {
       if (d[key] && d[key].length > 35) d[key] = d[key].slice(0,36);
@@ -191,7 +189,7 @@ d3.json("../static/res/line_data.json", function(error, data) {
   d3.selectAll(".axis.Person .tick text")
     .style("fill", color);
     
-  output.text(d3.tsv.format(data.slice(0,24)));
+  output.text(d3.tsv.format(data));
   function project(d) {
     return dimensions.map(function(p,i) {
       // check if data element has property and contains a value

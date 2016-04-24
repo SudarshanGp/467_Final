@@ -12,7 +12,6 @@ def parse_data(data):
     data_dict = {}
     for idx, row in data.iterrows():
         data_dict[row['Date']] = {}
-        # print(row)
         breakfast = row['Breakfast']
         breakfast_list = []
         if isinstance(breakfast, basestring) is True:
@@ -28,7 +27,6 @@ def parse_data(data):
                         temp_dict = temp_dict[temp_dict.keys()[0]]
                         data_dict[row['Date']]['Breakfast'] = [temp_dict]
         else:
-            print("NO Breakfast")
             data_dict[row['Date']]['Breakfast'] = []
 
         lunch = row['Lunch']
@@ -47,7 +45,6 @@ def parse_data(data):
 
                         data_dict[row['Date']]['Lunch'] = [temp_dict]
         else:
-            print("NO Lunch")
             data_dict[row['Date']]['Lunch'] = []
 
         dinner = row['Dinner']
@@ -65,7 +62,6 @@ def parse_data(data):
                         temp_dict = temp_dict[temp_dict.keys()[0]]
                         data_dict[row['Date']]['Dinner'] = [temp_dict]
         else:
-            print("NO DINNEr")
             data_dict[row['Date']]['Dinner'] = []
 
         snacks = row['Snacks']
@@ -83,7 +79,6 @@ def parse_data(data):
                         temp_dict = temp_dict[temp_dict.keys()[0]]
                         data_dict[row['Date']]['Snacks'] = [temp_dict]
         else:
-            print("NO Snacks")
             data_dict[row['Date']]['Snacks'] = []
         drinks = row['Drinks']
         drinks_list = []
@@ -184,5 +179,5 @@ add_to_list(data_nihal, "Nihal Shah")
 add_to_list(data_kanishk, "Kanishk Thajera")
 add_to_list(data_aadhya, "Aadhya Gupta")
 
-with open('line_data.json', 'w') as outfile:
+with open('static/res/line_data.json', 'w') as outfile:
     json.dump(json_data, outfile, indent=4)
