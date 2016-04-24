@@ -7,7 +7,7 @@ app.config.from_object(__name__)
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    radar_parser.parse_file("static/res/nihal.csv")
+    # radar_parser.parse_file("static/res/nihal.csv")
     return render_template('base.html')
 
 if __name__ == '__main__':
