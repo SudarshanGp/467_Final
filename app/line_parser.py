@@ -191,7 +191,7 @@ json_data = []
 add_to_list(data_susan, "Susan Jacob")
 add_to_list(data_sudarshan, "Sudarshan Govindaprasad")
 add_to_list(data_nihal, "Nihal Shah")
-add_to_list(data_kanishk, "Kanishk Thajera")
+add_to_list(data_kanishk, "Kanishk Thareja")
 add_to_list(data_aadhya, "Aadhya Gupta")
 
 with open('static/res/line_data.json', 'w') as outfile:
