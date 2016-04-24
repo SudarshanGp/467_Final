@@ -136,7 +136,7 @@ var axes = svg.selectAll(".axis")
   .enter().append("g")
     .attr("class", function(d) { return "axis " + d.key.replace(/ /g, "_"); })
     .attr("transform", function(d,i) { return "translate(" + xscale(i) + ")"; });
-d3.csv("../static/res/nutrient_1.csv", function(error, data) {
+d3.json("../static/res/line_data.json", function(error, data) {
   if (error) throw error;
   // shuffle the data!
   data = d3.shuffle(data);
