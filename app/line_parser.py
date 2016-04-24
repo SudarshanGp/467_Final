@@ -101,7 +101,7 @@ def parse_data(data):
 def newDict (data):
 	newDict = {}
 	for key, val in enumerate(data):
-		if val == 'Sugars (g)' or val == 'Carbohydrates (g)' or \
+		if val == 'Food' or val == 'Sugars (g)' or val == 'Carbohydrates (g)' or \
 		val == 'Protein (g)' or val == 'Cost' or val == 'Calories' \
 		or val == 'Fat (g)' or val == 'Cholesterol (mg)' or val == 'Sodium (mg)' \
 		or val == 'Calcium (%)' or val == 'Iron(%)' or val == 'Restaurant':
@@ -119,35 +119,35 @@ def add_to_list(data, name):
 		for key, val in enumerate(breakfast):
 			val = newDict(val)
 			val['Person'] = name
-			val['id'] = id_counter
+			# val['id'] = id_counter
 			json_data.append(val)
 			id_counter = id_counter + 1
 		lunch = value['Lunch']
 		for key, val in enumerate(lunch):
 			val = newDict(val)
 			val['Person'] = name
-			val['id'] = id_counter
+			# val['id'] = id_counter
 			json_data.append(val)
 			id_counter = id_counter + 1
 		dinner = value['Dinner']
 		for key, val in enumerate(dinner):
 			val = newDict(val)
 			val['Person'] = name
-			val['id'] = id_counter
+			# val['id'] = id_counter
 			json_data.append(val)
 			id_counter = id_counter + 1
 		snacks = value['Snacks']
 		for key, val in enumerate(snacks):
 			val = newDict(val)
 			val['Person'] = name
-			val['id'] = id_counter
+			# val['id'] = id_counter
 			json_data.append(val)
 			id_counter = id_counter + 1
 		drinks = value['Drinks']
 		for key, val in enumerate(drinks):
 			val = newDict(val)
 			val['Person'] = name
-			val['id'] = id_counter
+			# val['id'] = id_counter
 			json_data.append(val)
 			id_counter = id_counter + 1
 
