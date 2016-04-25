@@ -18,4 +18,4 @@ def line():
 def radar():
     return render_template('radar.html')
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0',port = 3000,  debug=True)
