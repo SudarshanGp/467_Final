@@ -341,9 +341,10 @@ function RadarChart(id, data, options) {
 				.transition().duration(200)
 				.style("fill-opacity", 0.7);
 			tooltip_blob
-				.attr('x', 90)
-				.attr('y', -300)
+				.attr('x', -190)
+				.attr('y', -310)
 				.text("Best Food for " + data[d][0][areaName] + ": \r" + (data[d][0]["best_food"]))
+				.style('font-size', "14px")
 				.transition().duration(200)
 				.style('opacity', 1);
 	}
