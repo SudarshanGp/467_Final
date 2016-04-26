@@ -11,8 +11,8 @@ SODIUM = "Sodium (mg)"
 CARBOHYDRATES = "Carbohydrates (g)"
 PROTEIN = "Protein (g)"
 IRON = "Iron(%)"
-
-PARAMS = [CALORIES, COST, FAT, CHOLESTEROL, SODIUM, PROTEIN, IRON]
+FOOD_SCORE = "Food Score"
+PARAMS = [CALORIES, COST, FAT, CHOLESTEROL, SODIUM, PROTEIN, IRON, FOOD_SCORE]
 def make_json(json_data,type):
     out_data = []
 
@@ -23,12 +23,13 @@ def make_json(json_data,type):
             "values":[]
         }
         for param in PARAMS:
-            inner_dict = {}
-            inner_dict["device"] = person
-            inner_dict["value"] = json_data[person][type][param]
-            inner_dict["reason"] = param
-            person_list.append(inner_dict)
-        person_dict["values"] = (person_list)
+            if param != FOOD_SCORE:
+                inner_dict = {}
+                inner_dict["device"] = person
+                inner_dict["value"] = json_data[person][type][param]
+                inner_dict["reason"] = param
+                person_list.append(inner_dict)
+                person_dict["values"] = (person_list)
         out_data.append(person_dict)
 
     with open('static/res/radar_data_'+type+'.json','w') as outfile:
@@ -45,22 +46,31 @@ def make_json_data(people_data):
         avg_food_intake[person] = defaultdict(float)
         meal_food_intake[person] = {}
         meal_food_intake[person]["total"] = defaultdict(float)
+        max_val = -30
+        max_food = ""
         for timestamp in person_data:
-
             for meal_type in person_data[timestamp]:
                 if meal_type not in meal_food_intake[person].keys():
                     meal_food_intake[person][meal_type] = defaultdict(float)
                 for meal in person_data[timestamp][meal_type]:
                     if meal["name"] != 'None':
                         for nutrients in PARAMS:
-                            meal_food_intake[person]["total"][nutrients] += meal["value"][nutrients]
-                            meal_food_intake[person][meal_type][nutrients] += meal["value"][nutrients]
+                            if nutrients != FOOD_SCORE:
+                                meal_food_intake[person]["total"][nutrients] += meal["value"][nutrients]
+                                meal_food_intake[person][meal_type][nutrients] += meal["value"][nutrients]
+                            else:
+                                if meal["value"][nutrients] > max_val:
+                                    max_val = meal["value"][nutrients]
+                                    max_food = meal["name"]
+                                    meal_food_intake[person]["total"][nutrients] = str(max_val) + " " + max_food
+                                    meal_food_intake[person][meal_type][nutrients] = str(max_val) + " " + max_food
 
     for person, person_data in people_data.iteritems():
         NUM_DAYS = len(person_data.keys())
         for meal_type in meal_food_intake[person]:
             for nutrients in PARAMS:
-                meal_food_intake[person][meal_type][nutrients] = float(meal_food_intake[person][meal_type][nutrients])/float(NUM_DAYS)
+                if nutrients != FOOD_SCORE:
+                    meal_food_intake[person][meal_type][nutrients] = float(meal_food_intake[person][meal_type][nutrients])/float(NUM_DAYS)
                 # if nutrients == COST:
                 #     total_data[nutrients] += meal_food_intake[person][[nutrients]
 
@@ -75,7 +85,8 @@ def make_json_data(people_data):
     for person, person_data in people_data.iteritems():
         for meal_type in meal_food_intake[person]:
             for nutrients in PARAMS:
-                meal_food_intake[person][meal_type][nutrients] /= total_data[nutrients]
+                if nutrients != FOOD_SCORE:
+                    meal_food_intake[person][meal_type][nutrients] /= total_data[nutrients]
 
     return meal_food_intake
 
@@ -105,7 +116,7 @@ def insert_food_info(people_dict, name, timestamp, food_info):
 
 
 def parse_file(file_path):
-    food_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_up.csv").fillna("None")
+    food_data = pd.DataFrame.from_csv("static/res/curr_dataset_food.csv").fillna("None")
     Aadhya_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_aadhya.csv").fillna("None").T.to_dict()
     Susan_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_susan.csv").fillna("None").T.to_dict()
     Nihal_data = pd.DataFrame.from_csv("static/res/curr_dataset_food_nihal.csv").fillna("None").T.to_dict()
@@ -118,12 +129,11 @@ def parse_file(file_path):
         food_info[food_item] = {}
 
     for param in food_dict.keys():
-        # print param
         for food_item in food_dict[param].keys():
             if param != "Restaurant" and param != "Cost":
                 food_info[food_item][param] = float(food_dict[param][food_item])
             elif param == "Cost":
-                food_info[food_item][param] = float(food_dict[param][food_item])
+                food_info[food_item][param] = float(food_dict[param][food_item][1:])
             else:
                 food_info[food_item][param] = food_dict[param][food_item]
 
@@ -148,11 +158,12 @@ def parse_file(file_path):
             dict_creator(people_dict, person, timestamp)
             insert_food_info(people_dict, person, timestamp, food_info)
 
-    json_data = make_json_data(people_dict)
-    pprint(json_data)
-    MEAL_TYPE = ["total", "Snacks", "Dinner", "Lunch", "Breakfast", "Drinks"]
-    for meal in MEAL_TYPE:
-        make_json(json_data,type=meal)
+
+    # json_data = make_json_data(people_dict)
+    # pprint(json_data["Aadhya"]["Lunch"])
+    # MEAL_TYPE = ["total", "Snacks", "Dinner", "Lunch", "Breakfast", "Drinks"]
+    # for meal in MEAL_TYPE:
+    #     make_json(json_data,type=meal)
 
     # pprint(people_dict)
 if __name__ == "__main__":

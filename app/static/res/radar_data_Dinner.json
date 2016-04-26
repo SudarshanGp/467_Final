@@ -25,17 +25,17 @@
             {
                 "device": "Nihal",
                 "reason": "Sodium (mg)",
-                "value": 0.3251102941176471
+                "value": 0.3300122549019608
             },
             {
                 "device": "Nihal",
                 "reason": "Protein (g)",
-                "value": 0.15323529411764708
+                "value": 0.15250000000000002
             },
             {
                 "device": "Nihal",
                 "reason": "Iron(%)",
-                "value": 0.18999999999999997
+                "value": 0.20680672268907563
             }
         ]
     },
@@ -105,17 +105,17 @@
             {
                 "device": "Aadhya",
                 "reason": "Sodium (mg)",
-                "value": 0.3735661764705882
+                "value": 0.37846813725490197
             },
             {
                 "device": "Aadhya",
                 "reason": "Protein (g)",
-                "value": 0.16624999999999998
+                "value": 0.16551470588235292
             },
             {
                 "device": "Aadhya",
                 "reason": "Iron(%)",
-                "value": 0.10260504201680672
+                "value": 0.11941176470588236
             }
         ]
     },
