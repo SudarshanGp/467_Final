@@ -1,6 +1,7 @@
 from __future__ import division
 import pandas as pd
 from pprint import pprint
+import csv
 from collections import defaultdict
 import json
 CALORIES = "Calories"
@@ -44,8 +45,13 @@ def make_json(json_data,type):
     with open('static/res/radar_data_'+type+'.json','w') as outfile:
         json.dump(out_data, outfile,  sort_keys=True,indent=4, separators=(',', ': '))
 
-    with open('static/res/radar_data_'+type+'_cost.json','w') as outfile:
-        json.dump(cost_dict, outfile,  sort_keys=True,indent=4, separators=(',', ': '))
+    writer = csv.writer(open('static/res/radar_data_'+type+'_cost.tsv','w'), delimiter= "\t")
+    writer.writerow(["name", "cost"])
+    for key, value in cost_dict.items():
+        writer.writerow([key, value])
+
+    # with open('static/res/radar_data_'+type+'_cost.json','w') as outfile:
+    #     json.dump(cost_dict, outfile,  sort_keys=True,indent=4, separators=(',', ': '))
 
 
 def init_food_score():
