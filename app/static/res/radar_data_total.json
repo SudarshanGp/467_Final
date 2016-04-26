@@ -12,8 +12,8 @@
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
                 "device": "Nihal",
-                "reason": "Cost",
-                "value": 0.6474117647058822
+                "reason": "Calcium (%)",
+                "value": 0.2850420168067227
             },
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
@@ -60,8 +60,8 @@
             {
                 "best_food": "Mediterranean Quinoa Salad, Panera - 4.68466",
                 "device": "Sudarshan",
-                "reason": "Cost",
-                "value": 0.7565490196078433
+                "reason": "Calcium (%)",
+                "value": 0.33915966386554625
             },
             {
                 "best_food": "Mediterranean Quinoa Salad, Panera - 4.68466",
@@ -108,8 +108,8 @@
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
                 "device": "Aadhya",
-                "reason": "Cost",
-                "value": 0.660470588235294
+                "reason": "Calcium (%)",
+                "value": 0.3309243697478991
             },
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
@@ -156,8 +156,8 @@
             {
                 "best_food": "Hummas with Chicken, Mashawi  - 4.42432",
                 "device": "Kanishk",
-                "reason": "Cost",
-                "value": 0.5564117647058823
+                "reason": "Calcium (%)",
+                "value": 0.47226890756302525
             },
             {
                 "best_food": "Hummas with Chicken, Mashawi  - 4.42432",
@@ -204,8 +204,8 @@
             {
                 "best_food": " Strawberries, Home - 4.006468",
                 "device": "Susan",
-                "reason": "Cost",
-                "value": 0.4015098039215684
+                "reason": "Calcium (%)",
+                "value": 0.8569747899159664
             },
             {
                 "best_food": " Strawberries, Home - 4.006468",

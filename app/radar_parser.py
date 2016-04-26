@@ -4,7 +4,7 @@ from pprint import pprint
 from collections import defaultdict
 import json
 CALORIES = "Calories"
-COST = "Cost"
+CALCIUM = "Calcium (%)"
 FAT = "Fat (g)"
 CHOLESTEROL = "Cholesterol (mg)"
 SODIUM = "Sodium (mg)"
@@ -12,7 +12,7 @@ CARBOHYDRATES = "Carbohydrates (g)"
 PROTEIN = "Protein (g)"
 IRON = "Iron(%)"
 FOOD_SCORE = "Food Score"
-PARAMS = [CALORIES, COST, FAT, CHOLESTEROL, SODIUM, PROTEIN, IRON, FOOD_SCORE]
+PARAMS = [CALORIES, CALCIUM, FAT, CHOLESTEROL, SODIUM, PROTEIN, IRON, FOOD_SCORE]
 def make_json(json_data,type):
     out_data = []
 
@@ -121,7 +121,7 @@ def make_json_data(people_data):
     total_data[PROTEIN] = 80.00
     total_data[IRON] = 70.00
     total_data[CARBOHYDRATES] = 300
-    total_data[COST] = 30
+    total_data[CALCIUM] = 70
     for person, person_data in people_data.iteritems():
         for meal_type in meal_food_intake[person]:
             for nutrients in PARAMS:

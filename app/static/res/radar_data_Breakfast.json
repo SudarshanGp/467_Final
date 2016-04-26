@@ -12,7 +12,7 @@
             {
                 "best_food": 0.0,
                 "device": "Nihal",
-                "reason": "Cost",
+                "reason": "Calcium (%)",
                 "value": 0.0
             },
             {
@@ -60,8 +60,8 @@
             {
                 "best_food": "Pancakes, Perkin's Restaurant and Bakery - 4.38082",
                 "device": "Sudarshan",
-                "reason": "Cost",
-                "value": 0.08329411764705882
+                "reason": "Calcium (%)",
+                "value": 0.03697478991596639
             },
             {
                 "best_food": "Pancakes, Perkin's Restaurant and Bakery - 4.38082",
@@ -108,8 +108,8 @@
             {
                 "best_food": "6 pc Hash Browns, Dunkin Donuts - -0.44802",
                 "device": "Aadhya",
-                "reason": "Cost",
-                "value": 0.00492156862745098
+                "reason": "Calcium (%)",
+                "value": 0.003361344537815126
             },
             {
                 "best_food": "6 pc Hash Browns, Dunkin Donuts - -0.44802",
@@ -156,7 +156,7 @@
             {
                 "best_food": 0.0,
                 "device": "Kanishk",
-                "reason": "Cost",
+                "reason": "Calcium (%)",
                 "value": 0.0
             },
             {
@@ -204,8 +204,8 @@
             {
                 "best_food": "Fruit and Yogurt Parfait, Einsteins - 3.34792",
                 "device": "Susan",
-                "reason": "Cost",
-                "value": 0.019450980392156862
+                "reason": "Calcium (%)",
+                "value": 0.07899159663865546
             },
             {
                 "best_food": "Fruit and Yogurt Parfait, Einsteins - 3.34792",

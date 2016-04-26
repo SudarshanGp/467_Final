@@ -12,8 +12,8 @@
             {
                 "best_food": "Hash Browns, Perkin's Restaurant and Bakery - -2.92912",
                 "device": "Nihal",
-                "reason": "Cost",
-                "value": 0.050352941176470586
+                "reason": "Calcium (%)",
+                "value": 0.1134453781512605
             },
             {
                 "best_food": "Hash Browns, Perkin's Restaurant and Bakery - -2.92912",
@@ -60,8 +60,8 @@
             {
                 "best_food": "Garlic Bread, Mia Za's - -0.760622",
                 "device": "Sudarshan",
-                "reason": "Cost",
-                "value": 0.07501960784313727
+                "reason": "Calcium (%)",
+                "value": 0.12739495798319328
             },
             {
                 "best_food": "Garlic Bread, Mia Za's - -0.760622",
@@ -108,8 +108,8 @@
             {
                 "best_food": "Strawberries, Home - 4.006468",
                 "device": "Aadhya",
-                "reason": "Cost",
-                "value": 0.09196078431372551
+                "reason": "Calcium (%)",
+                "value": 0.1761344537815126
             },
             {
                 "best_food": "Strawberries, Home - 4.006468",
@@ -156,8 +156,8 @@
             {
                 "best_food": "Ice cream Sandwich, County Market - 1.57674",
                 "device": "Kanishk",
-                "reason": "Cost",
-                "value": 0.0392156862745098
+                "reason": "Calcium (%)",
+                "value": 0.03529411764705882
             },
             {
                 "best_food": "Ice cream Sandwich, County Market - 1.57674",
@@ -204,8 +204,8 @@
             {
                 "best_food": "Blueberries, Home - 2.16866",
                 "device": "Susan",
-                "reason": "Cost",
-                "value": 0.08774509803921568
+                "reason": "Calcium (%)",
+                "value": 0.07714285714285714
             },
             {
                 "best_food": "Blueberries, Home - 2.16866",

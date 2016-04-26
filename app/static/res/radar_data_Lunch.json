@@ -12,8 +12,8 @@
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
                 "device": "Nihal",
-                "reason": "Cost",
-                "value": 0.2639607843137255
+                "reason": "Calcium (%)",
+                "value": 0.0634453781512605
             },
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
@@ -60,8 +60,8 @@
             {
                 "best_food": "Mediterranean Quinoa Salad, Panera - 4.68466",
                 "device": "Sudarshan",
-                "reason": "Cost",
-                "value": 0.26398039215686275
+                "reason": "Calcium (%)",
+                "value": 0.020168067226890758
             },
             {
                 "best_food": "Mediterranean Quinoa Salad, Panera - 4.68466",
@@ -108,8 +108,8 @@
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
                 "device": "Aadhya",
-                "reason": "Cost",
-                "value": 0.26296078431372544
+                "reason": "Calcium (%)",
+                "value": 0.1004201680672269
             },
             {
                 "best_food": "Veggie Burrito, Maize Mexican Grill - 4.98195",
@@ -156,8 +156,8 @@
             {
                 "best_food": "Black Bean Wich, Which wich - 3.32574",
                 "device": "Kanishk",
-                "reason": "Cost",
-                "value": 0.25050980392156863
+                "reason": "Calcium (%)",
+                "value": 0.16806722689075632
             },
             {
                 "best_food": "Black Bean Wich, Which wich - 3.32574",
@@ -204,8 +204,8 @@
             {
                 "best_food": "Sushi: Carrot Mango Tofu, Ko Fusion - 3.45897",
                 "device": "Susan",
-                "reason": "Cost",
-                "value": 0.11778431372549021
+                "reason": "Calcium (%)",
+                "value": 0.18537815126050422
             },
             {
                 "best_food": "Sushi: Carrot Mango Tofu, Ko Fusion - 3.45897",
