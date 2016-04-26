@@ -143,9 +143,9 @@ d3.json("../static/res/line_data.json", function(error, data) {
     //   d[p.key] = !d[p.key] ? null : p.type.coerce(d[p.key]);
     // });
     // truncate long text strings to fit in data table
-    for (var key in d) {
-      if (d[key] && d[key].length > 35) d[key] = d[key].slice(0,36);
-    }
+    // for (var key in d) {
+    //   if (d[key] && d[key].length > 35) d[key] = d[key].slice(0,36);
+    // }
   });
   // type/dimension default setting happens here
   dimensions.forEach(function(dim) {
@@ -191,7 +191,9 @@ d3.json("../static/res/line_data.json", function(error, data) {
     .style("fill", color);
     console.log((data));
     data.forEach(function(d) {
-      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' + d['Range'] + '</td> <td>' + d['Cost'] + '</td> <td>' 
+      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' 
+      // + d['Range'] + '</td> <td>' 
+      + d['Cost'] + '</td> <td>' 
       + d['Food'] + '</td> <td>' 
       + d['Calories'] + '</td> <td>' 
       + d['Fat (g)'] + '</td> <td>' 
@@ -304,7 +306,9 @@ d3.json("../static/res/line_data.json", function(error, data) {
     render(selected);
     $("#food td").remove();
     selected.forEach(function(d) {
-      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' + d['Range'] + '</td> <td>' + d['Cost'] + '</td> <td>' 
+      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' 
+      // + d['Range'] + '</td> <td>' 
+      + d['Cost'] + '</td> <td>' 
       + d['Food'] + '</td> <td>' 
       + d['Calories'] + '</td> <td>' 
       + d['Fat (g)'] + '</td> <td>' 
