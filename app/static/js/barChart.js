@@ -16,12 +16,22 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
+
+  var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Frequency:</strong> <span style='color:red'>" + d.cost + "</span>";
+  })
+
 jQuery('#barchart').html('');
 var svg = d3.select("#barchart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.call(tip);
 
 d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, data) {
     //console.log("in here");
@@ -51,7 +61,9 @@ d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, d
       .attr("x", function(d) { return x(d.name); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.cost); })
-      .attr("height", function(d) { return height - y(d.cost); });
+      .attr("height", function(d) { return height - y(d.cost); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
 });
   function type(d) {
   d.cost = +d.cost;
