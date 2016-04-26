@@ -5,6 +5,7 @@ var margin = {top: 66, right: 110, bottom: 20, left: 140},
 var devicePixelRatio = window.devicePixelRatio || 1;
 var color = d3.scale.ordinal()
   .range(["#FF1B3B","#4E85FF","#2ca02c"]);
+var line_data = "";
 var types = {
   "Number": {
     key: "Number",
@@ -106,7 +107,7 @@ var xscale = d3.scale.ordinal()
     .rangePoints([0, width]);
 var yAxis = d3.svg.axis()
     .orient("left");
-var container = d3.select("body").append("div")
+var container = d3.select("#graph").append("div")
     .attr("class", "parcoords")
     .style("width", width + margin.left + margin.right + "px")
     .style("height", height + margin.top + margin.bottom + "px");
@@ -127,7 +128,7 @@ ctx.globalCompositeOperation = 'darken';
 ctx.globalAlpha = 0.15;
 ctx.lineWidth = 1.5;
 ctx.scale(devicePixelRatio, devicePixelRatio);
-var output = d3.select("body").append("pre");
+var output = d3.select("#table").append("pre");
 var axes = svg.selectAll(".axis")
     .data(dimensions)
   .enter().append("g")
@@ -158,6 +159,7 @@ d3.json("../static/res/line_data.json", function(error, data) {
     }
     dim.scale.domain(dim.domain);
   });
+  line_data = data;
   var render = renderQueue(draw).rate(30);
   ctx.clearRect(0,0,width,height);
   ctx.globalAlpha = d3.min([0.85/Math.pow(data.length,0.3),1]);
@@ -187,8 +189,34 @@ d3.json("../static/res/line_data.json", function(error, data) {
       .attr("width", 16);
   d3.selectAll(".axis.Range .tick text")
     .style("fill", color);
-    
-  output.text(d3.tsv.format(data));
+    console.log((data));
+    data.forEach(function(d) {
+      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' + d['Range'] + '</td> <td>' + d['Cost'] + '</td> <td>' 
+      + d['Food'] + '</td> <td>' 
+      + d['Calories'] + '</td> <td>' 
+      + d['Fat (g)'] + '</td> <td>' 
+      + d['Cholesterol (mg)'] + '</td> <td>' 
+      + d['Sodium (mg)'] + '</td> <td>' 
+      + d['Carbohydrates (g)'] + '</td> <td>' 
+      + d['Sugars (g)'] + '</td> <td>' 
+      + d['Protein (g)'] + '</td> <td>' 
+      + d['Calcium (%)'] + '</td> <td>' 
+      + d['Iron(%)'] + '</td> <td>' 
+      + d['Restaurant'] + '</td> <td>' + 
+        '</td></tr>';
+      $('#food').append(tr);
+    });
+    // console.log((JSON.parse(data)));
+
+    // console.log(d3.json.format(data)); 
+
+    // $('#food').dynatable({
+    //     dataset: {
+    //       records: line_data
+
+    //     }
+    //   });
+  // output.text(d3.tsv.format(data));
   function project(d) {
     return dimensions.map(function(p,i) {
       // check if data element has property and contains a value
@@ -200,7 +228,6 @@ d3.json("../static/res/line_data.json", function(error, data) {
     });
   };
   function draw(d) {
-    console.log(d);
     ctx.strokeStyle = color(d.Range);
     ctx.beginPath();
     var coords = project(d);
@@ -275,6 +302,28 @@ d3.json("../static/res/line_data.json", function(error, data) {
     ctx.clearRect(0,0,width,height);
     ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
     render(selected);
-    output.text(d3.tsv.format(selected.slice(0,24)));
+    $("#food td").remove();
+    selected.forEach(function(d) {
+      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' + d['Range'] + '</td> <td>' + d['Cost'] + '</td> <td>' 
+      + d['Food'] + '</td> <td>' 
+      + d['Calories'] + '</td> <td>' 
+      + d['Fat (g)'] + '</td> <td>' 
+      + d['Cholesterol (mg)'] + '</td> <td>' 
+      + d['Sodium (mg)'] + '</td> <td>' 
+      + d['Carbohydrates (g)'] + '</td> <td>' 
+      + d['Sugars (g)'] + '</td> <td>' 
+      + d['Protein (g)'] + '</td> <td>' 
+      + d['Calcium (%)'] + '</td> <td>' 
+      + d['Iron(%)'] + '</td> <td>' 
+      + d['Restaurant'] + '</td> <td>' + 
+        '</td></tr>';
+      $('#food').append(tr);
+    });
+    // $('#food').dynatable({
+    //     dataset: {
+    //       records: selected
+    //     }
+    //   });
+    // output.text(d3.tsv.format(selected));
   }
 });

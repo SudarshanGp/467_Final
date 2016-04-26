@@ -4,7 +4,129 @@ body {
     font-family: "Roboto Slab", sans-serif;
     min-width: 760px;
 }
+#line_header{
+  padding-top: 15px;
+  text-align: center;
+}
+#foodinfo{
+    padding: 70px;
+    height: 100%;
+}
 
+    .fixed_headers {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+    .fixed_headers th {
+      text-decoration: underline;
+    }
+    .fixed_headers th,
+    .fixed_headers td {
+      padding: 5px;
+      text-align: left;
+    }
+    .fixed_headers td:nth-child(1),
+    .fixed_headers th:nth-child(1) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(2),
+    .fixed_headers th:nth-child(2) {
+      min-width: 50px;
+      max-width: 50px;    }
+    .fixed_headers td:nth-child(3),
+    .fixed_headers th:nth-child(3) {
+      min-width: 50px;
+      max-width: 50px;
+    }
+    .fixed_headers td:nth-child(4),
+    .fixed_headers th:nth-child(4) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(5),
+    .fixed_headers th:nth-child(5) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(6),
+    .fixed_headers th:nth-child(6) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(7),
+    .fixed_headers th:nth-child(7) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(8),
+    .fixed_headers th:nth-child(8) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(9),
+    .fixed_headers th:nth-child(9) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(10),
+    .fixed_headers th:nth-child(10) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(11),
+    .fixed_headers th:nth-child(11) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(12),
+    .fixed_headers th:nth-child(12) {
+      min-width: 150px;
+      max-width: 150px;
+    }
+    .fixed_headers td:nth-child(13),
+    .fixed_headers th:nth-child(13) {
+      min-width: 150px;
+      max-width: 100px;
+    }
+    .fixed_headers td:nth-child(14),
+    .fixed_headers th:nth-child(14) {
+      min-width: 150px;
+      max-width: 100px;
+    }
+
+    .fixed_headers thead {
+      background-color: #333333;
+      color: #fdfdfd;
+    }
+    .fixed_headers thead tr {
+      display: block;
+      position: relative;
+    }
+    .fixed_headers tbody {
+      display: block;
+      overflow: auto;
+      width: 100%;
+      height: 300px;
+    }
+    .fixed_headers tbody tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .old_ie_wrapper {
+      height: 300px;
+      width: 750px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .old_ie_wrapper tbody {
+      height: auto;
+    }
+
+#info{
+  /*padding-top: 50px;*/
+  text-align: center;
+}
 .parcoords {
   display: block;
   font-family: "Roboto Slab";
