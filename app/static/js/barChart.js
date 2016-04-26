@@ -21,7 +21,7 @@ var yAxis = d3.svg.axis()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Frequency:</strong> <span style='color:red'>" + d.cost + "</span>";
+    return "<strong>Cost:</strong> <span style='color:red'>" + parseInt(d.cost) + "</span>";
   })
 
 jQuery('#barchart').html('');
