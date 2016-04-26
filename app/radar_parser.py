@@ -12,10 +12,12 @@ CARBOHYDRATES = "Carbohydrates (g)"
 PROTEIN = "Protein (g)"
 IRON = "Iron(%)"
 FOOD_SCORE = "Food Score"
-PARAMS = [CALORIES, CALCIUM, FAT, CHOLESTEROL, SODIUM, PROTEIN, IRON, FOOD_SCORE]
+COST = "Cost"
+PARAMS = [CALORIES, CALCIUM, FAT, CHOLESTEROL, SODIUM, PROTEIN, IRON, FOOD_SCORE, COST]
+
 def make_json(json_data,type):
     out_data = []
-
+    cost_dict = {}
     for person in json_data:
         person_list = []
         person_dict = {
@@ -25,21 +27,26 @@ def make_json(json_data,type):
         }
         for param in PARAMS:
             inner_dict = {}
-            if param != FOOD_SCORE:
-                inner_dict["device"] = person
-                inner_dict["value"] = json_data[person][type][param]
-                inner_dict["reason"] = param
-                inner_dict["best_food"] = json_data[person][type][FOOD_SCORE]
-                person_list.append(inner_dict)
-                person_dict["values"] = (person_list)
 
-
-
+            if param != COST:
+                if param != FOOD_SCORE:
+                    inner_dict["device"] = person
+                    inner_dict["value"] = json_data[person][type][param]
+                    inner_dict["reason"] = param
+                    inner_dict["best_food"] = json_data[person][type][FOOD_SCORE]
+                    person_list.append(inner_dict)
+                    person_dict["values"] = (person_list)
+                else:
+                    cost_dict[person] = json_data[person][type][COST]
 
         out_data.append(person_dict)
 
     with open('static/res/radar_data_'+type+'.json','w') as outfile:
         json.dump(out_data, outfile,  sort_keys=True,indent=4, separators=(',', ': '))
+
+    with open('static/res/radar_data_'+type+'_cost.json','w') as outfile:
+        json.dump(cost_dict, outfile,  sort_keys=True,indent=4, separators=(',', ': '))
+
 
 def init_food_score():
     food_score = {
@@ -109,7 +116,7 @@ def make_json_data(people_data):
         NUM_DAYS = len(person_data.keys())
         for meal_type in meal_food_intake[person]:
             for nutrients in PARAMS:
-                if nutrients != FOOD_SCORE:
+                if nutrients != FOOD_SCORE and nutrients != COST:
                     meal_food_intake[person][meal_type][nutrients] = float(meal_food_intake[person][meal_type][nutrients])/float(NUM_DAYS)
                 # if nutrients == COST:
                 #     total_data[nutrients] += meal_food_intake[person][[nutrients]
@@ -125,7 +132,7 @@ def make_json_data(people_data):
     for person, person_data in people_data.iteritems():
         for meal_type in meal_food_intake[person]:
             for nutrients in PARAMS:
-                if nutrients != FOOD_SCORE:
+                if nutrients != FOOD_SCORE and nutrients != COST:
                     meal_food_intake[person][meal_type][nutrients] /= total_data[nutrients]
 
     return meal_food_intake
