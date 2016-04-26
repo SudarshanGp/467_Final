@@ -1,7 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto:400,100,300,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto + Slab:400,100,300,700);
 
 body {
-    font-family: "Roboto", sans-serif ;
+    font-family: "Roboto Slab", sans-serif ;
     min-width: 760px;
 }
 #line_header{
@@ -9,7 +9,8 @@ body {
   text-align: center;
 }
 #foodinfo{
-    padding: 70px;
+    padding-left: 82px;
+    padding-right: 82px;
     height: 100%;
 }
 
@@ -23,13 +24,13 @@ body {
     }
     .fixed_headers th,
     .fixed_headers td {
-      padding: 5px;
-      text-align: left;
+      height: 100%;
+      text-align: center;
     }
     .fixed_headers td:nth-child(1),
     .fixed_headers th:nth-child(1) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 100px;
+      max-width: 100px;
     }
     .fixed_headers td:nth-child(2),
     .fixed_headers th:nth-child(2) {
@@ -37,64 +38,64 @@ body {
       max-width: 50px;    }
     .fixed_headers td:nth-child(3),
     .fixed_headers th:nth-child(3) {
-      min-width: 50px;
-      max-width: 50px;
+      min-width: 100px;
+      max-width: 100px;
     }
     .fixed_headers td:nth-child(4),
     .fixed_headers th:nth-child(4) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 70px;
+      max-width: 70px;
     }
     .fixed_headers td:nth-child(5),
     .fixed_headers th:nth-child(5) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 60px;
+      max-width: 60px;
     }
     .fixed_headers td:nth-child(6),
     .fixed_headers th:nth-child(6) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 135px;
+      max-width: 135px;
     }
     .fixed_headers td:nth-child(7),
     .fixed_headers th:nth-child(7) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 110px;
+      max-width: 110px;
     }
     .fixed_headers td:nth-child(8),
     .fixed_headers th:nth-child(8) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 140px;
+      max-width: 140px;
     }
     .fixed_headers td:nth-child(9),
     .fixed_headers th:nth-child(9) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 100px;
+      max-width: 100px;
     }
     .fixed_headers td:nth-child(10),
     .fixed_headers th:nth-child(10) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 90px;
+      max-width: 90px;
     }
     .fixed_headers td:nth-child(11),
     .fixed_headers th:nth-child(11) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 100px;
+      max-width: 100px;
     }
     .fixed_headers td:nth-child(12),
     .fixed_headers th:nth-child(12) {
-      min-width: 150px;
-      max-width: 150px;
+      min-width: 60px;
+      max-width: 60px;
     }
     .fixed_headers td:nth-child(13),
     .fixed_headers th:nth-child(13) {
       min-width: 150px;
-      max-width: 100px;
+      max-width: 150px;
     }
-    .fixed_headers td:nth-child(14),
+/*    .fixed_headers td:nth-child(14),
     .fixed_headers th:nth-child(14) {
       min-width: 150px;
       max-width: 100px;
-    }
+    }*/
 
     .fixed_headers thead {
       background-color: #333333;
