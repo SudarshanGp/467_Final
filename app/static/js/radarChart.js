@@ -339,7 +339,7 @@ function RadarChart(id, data, options) {
   //d3 symbol creates a path-string, for example
   //"M0,-8.059274488676564L9.306048591020996,
   //8.059274488676564 -9.306048591020996,8.059274488676564Z"
-  	.shape("path", d3.svg.symbol().type("triangle-up").size(150)())
+  	.shape("path", d3.svg.symbol().type("circle").size(200)())
   	.shapePadding(10)
   	.scale(cfg.color)
   	.labels(cfg.color.domain().map(function(d){
