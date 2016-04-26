@@ -41,7 +41,7 @@
                 pointer-events: none !important;
             }
 			.bar {
-			  fill: steelblue;
+			  fill: #0d47a1;
 			}
 					.axis {
 		  font: 10px sans-serif;
@@ -75,17 +75,17 @@
     <br>
     <a onclick="foo('total'); barcreate('total');" class="waves-effect waves-light btn pink">All Meals</a>
     <a onclick="foo('Breakfast'); barcreate('Breakfast');" class="waves-effect waves-light btn pink">Breakfast</a>
-    <a onclick="foo('Lunch')" class="waves-effect waves-light btn pink">Lunch</a>
-    <a onclick="foo('Dinner')" class="waves-effect waves-light btn pink">Dinner</a>
-    <a onclick="foo('Snacks')" class="waves-effect waves-light btn pink">Snacks</a>
-    <a onclick="foo('Drinks')" class="waves-effect waves-light btn pink">Drinks</a>
+    <a onclick="foo('Lunch'); barcreate('Lunch');" class="waves-effect waves-light btn pink">Lunch</a>
+    <a onclick="foo('Dinner'); barcreate('Dinner');" class="waves-effect waves-light btn pink">Dinner</a>
+    <a onclick="foo('Snacks'); barcreate('Snacks');" class="waves-effect waves-light btn pink">Snacks</a>
+    <a onclick="foo('Drinks'); barcreate('Drinks');" class="waves-effect waves-light btn pink">Drinks</a>
     <br><br>
 	<div class = "row">
-		<div class = "col s9">
+		<div class = "col s8">
 			<h4><div id = "title">All Meals</div></h4>
 				<div class="radarChart"></div>
 			</div>
-		<div class = "col s3">
+		<div class = "col s4">
 			<h4><div id = "title">Cost Expenditure per Person</div></h4>
 			<div id = "barchart"></div>
 		</div>
@@ -93,44 +93,10 @@
 		<script src="{{ url_for('static',filename='js/radarChart.js') }}"></script>
 		<script src="{{ url_for('static',filename='js/barChart.js') }}"></script>
 		<script>
-			//////////////////////////////////////////////////////////////
-			//////////////////////// Set-Up //////////////////////////////
-			//////////////////////////////////////////////////////////////
-
-			var margin = {top: 100, right: 100, bottom: 100, left: 100},
-				legendPosition = {x: 25, y: 25},
-				width = Math.min(900, window.innerWidth - 10) - margin.left - margin.right,
-				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-
-			//////////////////////////////////////////////////////////////
-			//////////////////// Draw the Chart //////////////////////////
-			//////////////////////////////////////////////////////////////
-
-			var color = d3.scale.ordinal()
-				.range(["#7CDB39","#FFE100","#FF3529","#B21AE8","#00DFFC","#93D92D", "#B0495F","#0010B0"]);
-
-			var radarChartOptions = {
-			  w: width,
-			  h: height,
-			  margin: margin,
-			  legendPosition: legendPosition,
-			  maxValue: 0.1,
-			  wrapWidth: 60,
-			  levels: 5,
-			  roundStrokes: true,
-			  color: color,
-			  axisName: "reason",
-			  areaName: "device",
-			  value: "value",
-              food:"best_food",
-              sortAreas: false
-			};
-
-			//Load the data and Call function to draw the Radar chart
-			d3.json("../static/res/radar_data_total.json", function(error, data){
-				RadarChart(".radarChart", data, radarChartOptions);
+			$( document ).ready(function() {
+				foo('total');
+				barcreate('total');
 			});
-
 		</script>
 
 	</body>
