@@ -8,11 +8,11 @@ app.config.from_object(__name__)
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     # radar_parser.parse_file("static/res/nihal.csv")
-    return render_template('index.html')
+    return render_template('radar.html')
 
 @app.route('/line', methods=['GET', 'POST'])
 def line():
-    return render_template('base.html')
+    return render_template('line.html')
 
 @app.route('/radar', methods=['GET', 'POST'])
 def radar():

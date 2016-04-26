@@ -3,21 +3,51 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/materialize.css') }}"  media="screen,projection"/>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <link href="{{ url_for('static',filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-
+    <link href="{{ url_for('static',filename='css/jquery.dynatable.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="{{ url_for('static',filename='js/materialize.js') }}"></script>
-     <div class="navbar-fixed">
+       <div class="navbar-fixed">
             <nav class = "blue darken-4">
                 <div class="nav-wrapper">
-                    <a href="/" class="brand-logo center"><strong>Food Data Analyzer</strong></a>
+                    <a href="/" class="brand-logo center"><strong>Nutrition Analyzer</strong></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="/radar">Trends</a></li>
+                        <li><a href="/line">Explore Your Data</a></li>
+                    </ul>
 
                 </div>
             </nav>
         </div>
 </head>
 <meta charset="utf-8">
-<title>CS 467 Final</title>
+<title>Explore The Data</title>
+<h2 id = "line_header">Cost and Nutrition</h2>
+<div id = "graph"></div>
+<h2 id = "info">More Information</h2>
+
+<div id = "table">
+    <table id="my-food-table">
+      <thead>
+        <th>Person</th>
+        <th>Range</th>
+        <th>Cost</th>
+        <th>Calories</th>
+        <th>Fat (g)</th>
+        <th>Cholesterol (mg)</th>
+        <th>Sodium (mg)</th>
+        <th>Carbohydrates (g)</th>
+        <th>Sugars (g)</th>
+        <th>Protein (g)</th>
+        <th>Calcium (%)</th>
+        <th>Iron(%)</th>
+        <th>Restaurant</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+</div>
 <body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="http://bl.ocks.org/syntagmatic/raw/3341641/render-queue.js"></script>
+<script src = "{{ url_for('static', filename = 'js/jquery.dynatable.js') }}"></script>
 <script src = "{{ url_for('static', filename = 'js/main.js') }}"></script>

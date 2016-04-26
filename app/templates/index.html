@@ -15,10 +15,15 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="{{ url_for('static',filename='js/materialize.js') }}"></script>
+
     <div class="navbar-fixed">
             <nav class = "blue darken-4">
                 <div class="nav-wrapper">
                     <a href="/" class="brand-logo center"><strong>Food Data Analyzer</strong></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="/radar">View Food Trends</a></li>
+                        <li><a href="/line">Explore Your Food Data</a></li>
+                    </ul>
 
                 </div>
             </nav>
