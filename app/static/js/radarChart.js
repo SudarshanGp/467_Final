@@ -217,11 +217,12 @@ function RadarChart(id, data, options) {
 			console.log(typeof (d3.event.pageX));
 
 			tooltip_blob
-				.attr('x', 90)
-				.attr('y', -300)
+				.attr('x', -190)
+				.attr('y', -310)
 				.text("Best Food for " + d[0][areaName] + ": \r" + (d[0]["best_food"]))
 				.transition().duration(200)
-				.style('opacity', 1);
+				.style('opacity', 1)
+				.style('font-size', "14px");
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs

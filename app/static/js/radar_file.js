@@ -10,8 +10,8 @@ function foo(file_path){
         document.getElementById("title").innerHTML = file_path;
     }
 
-    var margin = {top: 100, right: 100, bottom: 100, left: 100},
-				legendPosition = {x: 25, y: 25},
+    var margin = {top: 100, right: 100, bottom: 100, left: 0},
+				legendPosition = {x: 40, y: 20},
 				width = Math.min(1000, window.innerWidth - 10) - margin.left - margin.right,
 				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
