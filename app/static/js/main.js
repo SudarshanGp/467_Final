@@ -5,6 +5,7 @@ var margin = {top: 66, right: 110, bottom: 20, left: 140},
 var devicePixelRatio = window.devicePixelRatio || 1;
 var color = d3.scale.ordinal()
   .range(["#FF1B3B","#4E85FF","#2ca02c"]);
+var line_data = "";
 var types = {
   "Number": {
     key: "Number",
@@ -158,6 +159,7 @@ d3.json("../static/res/line_data.json", function(error, data) {
     }
     dim.scale.domain(dim.domain);
   });
+  line_data = data;
   var render = renderQueue(draw).rate(30);
   ctx.clearRect(0,0,width,height);
   ctx.globalAlpha = d3.min([0.85/Math.pow(data.length,0.3),1]);
@@ -187,14 +189,33 @@ d3.json("../static/res/line_data.json", function(error, data) {
       .attr("width", 16);
   d3.selectAll(".axis.Range .tick text")
     .style("fill", color);
-    console.log(data);
+    console.log((data));
+    data.forEach(function(d) {
+      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' + d['Range'] + '</td> <td>' + d['Cost'] + '</td> <td>' 
+      + d['Food'] + '</td> <td>' 
+      + d['Calories'] + '</td> <td>' 
+      + d['Fat (g)'] + '</td> <td>' 
+      + d['Cholesterol (mg)'] + '</td> <td>' 
+      + d['Sodium (mg)'] + '</td> <td>' 
+      + d['Carbohydrates (g)'] + '</td> <td>' 
+      + d['Sugars (g)'] + '</td> <td>' 
+      + d['Protein (g)'] + '</td> <td>' 
+      + d['Calcium (%)'] + '</td> <td>' 
+      + d['Iron(%)'] + '</td> <td>' 
+      + d['Restaurant'] + '</td> <td>' + 
+        '</td></tr>';
+      $('#food').append(tr);
+    });
+    // console.log((JSON.parse(data)));
+
     // console.log(d3.json.format(data)); 
 
-    $('#my-food-table').dynatable({
-        dataset: {
-          records: data
-        }
-      });
+    // $('#food').dynatable({
+    //     dataset: {
+    //       records: line_data
+
+    //     }
+    //   });
   // output.text(d3.tsv.format(data));
   function project(d) {
     return dimensions.map(function(p,i) {
@@ -281,11 +302,28 @@ d3.json("../static/res/line_data.json", function(error, data) {
     ctx.clearRect(0,0,width,height);
     ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
     render(selected);
-    $('#my-food-table').dynatable({
-        dataset: {
-          records: selected
-        }
-      });
+    $("#food td").remove();
+    selected.forEach(function(d) {
+      var tr = '<tr> <td>' + d['Person'] + '</td> <td>' + d['Range'] + '</td> <td>' + d['Cost'] + '</td> <td>' 
+      + d['Food'] + '</td> <td>' 
+      + d['Calories'] + '</td> <td>' 
+      + d['Fat (g)'] + '</td> <td>' 
+      + d['Cholesterol (mg)'] + '</td> <td>' 
+      + d['Sodium (mg)'] + '</td> <td>' 
+      + d['Carbohydrates (g)'] + '</td> <td>' 
+      + d['Sugars (g)'] + '</td> <td>' 
+      + d['Protein (g)'] + '</td> <td>' 
+      + d['Calcium (%)'] + '</td> <td>' 
+      + d['Iron(%)'] + '</td> <td>' 
+      + d['Restaurant'] + '</td> <td>' + 
+        '</td></tr>';
+      $('#food').append(tr);
+    });
+    // $('#food').dynatable({
+    //     dataset: {
+    //       records: selected
+    //     }
+    //   });
     // output.text(d3.tsv.format(selected));
   }
 });
