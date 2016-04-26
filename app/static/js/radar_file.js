@@ -12,7 +12,7 @@ function foo(file_path){
 
     var margin = {top: 100, right: 100, bottom: 100, left: 100},
 				legendPosition = {x: 25, y: 25},
-				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+				width = Math.min(1000, window.innerWidth - 10) - margin.left - margin.right,
 				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
 			//////////////////////////////////////////////////////////////
@@ -34,7 +34,9 @@ function foo(file_path){
 			  color: color,
 			  axisName: "reason",
 			  areaName: "device",
-			  value: "value"
+			  value: "value",
+				food: "best_food",
+				sortAreas:false
 			};
 
 			//Load the data and Call function to draw the Radar chart

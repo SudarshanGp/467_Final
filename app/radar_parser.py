@@ -20,21 +20,55 @@ def make_json(json_data,type):
         person_list = []
         person_dict = {
             "key":person,
-            "values":[]
+            "values":[],
+            "best_food":""
         }
         for param in PARAMS:
+            inner_dict = {}
             if param != FOOD_SCORE:
-                inner_dict = {}
                 inner_dict["device"] = person
                 inner_dict["value"] = json_data[person][type][param]
                 inner_dict["reason"] = param
+                inner_dict["best_food"] = json_data[person][type][FOOD_SCORE]
                 person_list.append(inner_dict)
                 person_dict["values"] = (person_list)
+
+
+
+
         out_data.append(person_dict)
 
     with open('static/res/radar_data_'+type+'.json','w') as outfile:
         json.dump(out_data, outfile,  sort_keys=True,indent=4, separators=(',', ': '))
 
+def init_food_score():
+    food_score = {
+        "total":{
+            "name":"",
+            "score":-30
+        },
+        "Breakfast":{
+            "name":"",
+            "score":-30
+        },
+        "Lunch":{
+            "name":"",
+            "score":-30
+        },
+        "Dinner":{
+            "name":"",
+            "score":-30
+        },
+        "Drinks":{
+            "name":"",
+            "score":-30
+        },
+        "Snacks":{
+            "name":"",
+            "score":-30
+        },
+    }
+    return food_score
 def make_json_data(people_data):
 
     # Cost, Calories, Fat, Cholestrol, Sodium, Protein, Iron, Carbohydrates
@@ -42,12 +76,12 @@ def make_json_data(people_data):
     avg_food_intake = {}
     meal_food_intake = {}
     total_data = defaultdict(float)
+
     for person, person_data in people_data.iteritems():
         avg_food_intake[person] = defaultdict(float)
         meal_food_intake[person] = {}
         meal_food_intake[person]["total"] = defaultdict(float)
-        max_val = -30
-        max_food = ""
+        food_score = init_food_score()
         for timestamp in person_data:
             for meal_type in person_data[timestamp]:
                 if meal_type not in meal_food_intake[person].keys():
@@ -59,11 +93,17 @@ def make_json_data(people_data):
                                 meal_food_intake[person]["total"][nutrients] += meal["value"][nutrients]
                                 meal_food_intake[person][meal_type][nutrients] += meal["value"][nutrients]
                             else:
-                                if meal["value"][nutrients] > max_val:
-                                    max_val = meal["value"][nutrients]
-                                    max_food = meal["name"]
-                                    meal_food_intake[person]["total"][nutrients] = str(max_val) + " " + max_food
-                                    meal_food_intake[person][meal_type][nutrients] = str(max_val) + " " + max_food
+                                food_val = meal["value"][nutrients]
+                                if food_val > food_score[meal_type]["score"]:
+                                    food_score[meal_type]["score"] = food_val
+                                    food_score[meal_type]["name"] = meal["name"]
+                                    meal_food_intake[person][meal_type][nutrients] =  meal["name"] +", "+meal["value"]["Restaurant"] +" - " +str(food_val)
+
+                                if food_val > food_score["total"]["score"]:
+                                    food_score["total"]["score"] = food_val
+                                    food_score["total"]["name"] = meal["name"]
+                                    meal_food_intake[person]["total"][nutrients] = meal["name"] +", "+meal["value"]["Restaurant"] +" - " +str(food_val)
+
 
     for person, person_data in people_data.iteritems():
         NUM_DAYS = len(person_data.keys())
@@ -159,11 +199,11 @@ def parse_file(file_path):
             insert_food_info(people_dict, person, timestamp, food_info)
 
 
-    # json_data = make_json_data(people_dict)
-    # pprint(json_data["Aadhya"]["Lunch"])
-    # MEAL_TYPE = ["total", "Snacks", "Dinner", "Lunch", "Breakfast", "Drinks"]
-    # for meal in MEAL_TYPE:
-    #     make_json(json_data,type=meal)
+    json_data = make_json_data(people_dict)
+    # pprint(json_data["Nihal"]["Breakfast"])
+    MEAL_TYPE = ["total", "Snacks", "Dinner", "Lunch", "Breakfast", "Drinks"]
+    for meal in MEAL_TYPE:
+        make_json(json_data,type=meal)
 
     # pprint(people_dict)
 if __name__ == "__main__":

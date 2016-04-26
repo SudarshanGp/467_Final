@@ -24,7 +24,8 @@ function RadarChart(id, data, options) {
 	 axisName: "axis",
 	 areaName:"areaName",
 	 value: "value",
-	 sortAreas: true,
+	 food:"best_food",
+	 sortAreas: false
 	};
 
 	//Put all of the options into a variable called cfg
@@ -43,7 +44,7 @@ function RadarChart(id, data, options) {
 	//Calculate the average value for each area
 	data.forEach(function(d){
 		d[value + "Average"] = d3.mean(d.values, function(e){ return e[value] });
-	})
+	});
 
 	//Sort the data for the areas from largest to smallest
 	//by average value as an approximation of actual blob area
@@ -57,7 +58,7 @@ function RadarChart(id, data, options) {
 
 	//Convert the nested data passed in
 	// into an array of values arrays
-	data = data.map(function(d) { return d.values })
+	data = data.map(function(d) {  return  d.values })
 
 	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
 	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){
@@ -196,8 +197,15 @@ function RadarChart(id, data, options) {
 		.style("fill", function(d,i) { return cfg.color(i); })
 		.style("fill-opacity", cfg.opacityArea)
 		.on('mouseover', function (d,i){
-			console.log("d", d);
 			console.log("this", this);
+			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
+			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
+			console.log("New X", newX);
+			console.log("New X", newX);
+			console.log("Event X", d3.event.pageX);
+			console.log("Event Y", d3.event.pageY);
+
+
 			//Dim all blobs
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
@@ -206,12 +214,22 @@ function RadarChart(id, data, options) {
 			d3.select(this)
 				.transition().duration(200)
 				.style("fill-opacity", 0.7);
+			console.log(typeof (d3.event.pageX));
+
+			tooltip_blob
+				.attr('x', 90)
+				.attr('y', -300)
+				.text("Best Food for " + d[0][areaName] + ": \r" + (d[0]["best_food"]))
+				.transition().duration(200)
+				.style('opacity', 1);
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
 				.style("fill-opacity", cfg.opacityArea);
+			tooltip_blob.transition().duration(200)
+				.style("opacity", 0);
 		});
 
 	//Create the outlines
@@ -275,6 +293,9 @@ function RadarChart(id, data, options) {
 		.attr("class", "tooltip")
 		.style("opacity", 0);
 
+	var tooltip_blob = g.append("text")
+		.attr("class", "tooltip_blob")
+		.style("opacity", 0);
 	/////////////////////////////////////////////////////////
 	/////////////////// Helper Functions ////////////////////
 	/////////////////////////////////////////////////////////
@@ -310,6 +331,7 @@ function RadarChart(id, data, options) {
 	// on mouseover for the legend symbol
 	function cellover(d) {
 			//Dim all blobs
+			console.log(data);
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
 				.style("fill-opacity", 0.1);
@@ -317,6 +339,12 @@ function RadarChart(id, data, options) {
 			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 				.transition().duration(200)
 				.style("fill-opacity", 0.7);
+			tooltip_blob
+				.attr('x', 90)
+				.attr('y', -300)
+				.text("Best Food for " + data[d][0][areaName] + ": \r" + (data[d][0]["best_food"]))
+				.transition().duration(200)
+				.style('opacity', 1);
 	}
 
 	// on mouseout for the legend symbol
@@ -325,6 +353,8 @@ function RadarChart(id, data, options) {
 		d3.selectAll(".radarArea")
 			.transition().duration(200)
 			.style("fill-opacity", cfg.opacityArea);
+		tooltip_blob.transition().duration(200)
+				.style("opacity", 0);
 	}
 
 	/////////////////////////////////////////////////////////
