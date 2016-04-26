@@ -40,6 +40,23 @@
                 background: #ddd !important;
                 pointer-events: none !important;
             }
+			.bar {
+			  fill: steelblue;
+			}
+					.axis {
+		  font: 10px sans-serif;
+		}
+
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+
+		.x.axis path {
+		  display: none;
+		}
 		</style>
          <div class="navbar-fixed">
             <nav class = "blue darken-4">
@@ -62,11 +79,19 @@
     <a onclick="foo('Dinner')" class="waves-effect waves-light btn pink">Dinner</a>
     <a onclick="foo('Snacks')" class="waves-effect waves-light btn pink">Snacks</a>
     <a onclick="foo('Drinks')" class="waves-effect waves-light btn pink">Drinks</a>
-    <br>
-    <h4><div id = "title">All Meals</div></h4>
-		<div class="radarChart"></div>
-
+    <br><br>
+	<div class = "row">
+		<div class = "col s9">
+			<h4><div id = "title">All Meals</div></h4>
+				<div class="radarChart"></div>
+			</div>
+		<div class = "col s3">
+			<h4><div id = "title">Cost Expenditure per Person</div></h4>
+			<
+		</div>
+	</div>
 		<script src="{{ url_for('static',filename='js/radarChart.js') }}"></script>
+		<script src="{{ url_for('static',filename='js/barChart.js') }}"></script>
 		<script>
 			//////////////////////////////////////////////////////////////
 			//////////////////////// Set-Up //////////////////////////////
@@ -107,5 +132,6 @@
 			});
 
 		</script>
+
 	</body>
 </html>
