@@ -13,7 +13,7 @@ function RadarChart(id, data, options) {
 	 legendPosition: {x: 20, y: 20}, // the position of the legend, from the top-left corner of the svg
 	 levels: 3,				//How many levels or inner circles should there be drawn
 	 maxValue: 0, 				//What is the value that the biggest circle will represent
-	 labelFactor: 1.25, 			//How much farther than the radius of the outer circle should the labels be placed
+	 labelFactor: 1.10, 			//How much farther than the radius of the outer circle should the labels be placed
 	 wrapWidth: 60, 			//The number of pixels after which a label needs to be given a new line
 	 opacityArea: 0.35, 			//The opacity of the area of the blob
 	 dotRadius: 4, 				//The size of the colored circles of each blog

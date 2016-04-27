@@ -90,7 +90,7 @@
   left: 0;
 }
 		</style>
-         <div class="navbar-fixed">
+         <div class="navbar">
             <nav class = "blue darken-4">
                 <div class="nav-wrapper">
                     <a href="/" class="brand-logo center"><strong>Nutrition Analyzer</strong></a>
@@ -105,13 +105,14 @@
 	</head>
 	<body>
     <br>
-    <a onclick="foo('total'); barcreate('total');" class="waves-effect waves-light btn pink">All Meals</a>
-    <a onclick="foo('Breakfast'); barcreate('Breakfast');" class="waves-effect waves-light btn pink">Breakfast</a>
-    <a onclick="foo('Lunch'); barcreate('Lunch');" class="waves-effect waves-light btn pink">Lunch</a>
-    <a onclick="foo('Dinner'); barcreate('Dinner');" class="waves-effect waves-light btn pink">Dinner</a>
-    <a onclick="foo('Snacks'); barcreate('Snacks');" class="waves-effect waves-light btn pink">Snacks</a>
-    <a onclick="foo('Drinks'); barcreate('Drinks');" class="waves-effect waves-light btn pink">Drinks</a>
-    <br><br>
+        <div id = "location"></div>
+    <a href = "#location" onclick="foo('total'); barcreate('total');" class="waves-effect waves-light btn pink">All Meals</a>
+    <a href = "#location" onclick="foo('Breakfast'); barcreate('Breakfast');" class="waves-effect waves-light btn pink">Breakfast</a>
+    <a href = "#location" onclick="foo('Lunch'); barcreate('Lunch');" class="waves-effect waves-light btn pink">Lunch</a>
+    <a  href = "#location" onclick="foo('Dinner'); barcreate('Dinner');" class="waves-effect waves-light btn pink">Dinner</a>
+    <a href = "#location" onclick="foo('Snacks'); barcreate('Snacks');" class="waves-effect waves-light btn pink">Snacks</a>
+    <a href = "#location" onclick="foo('Drinks'); barcreate('Drinks');" class="waves-effect waves-light btn pink">Drinks</a>
+
 	<div class = "row center">
 		<strong><h4><div id = "title" style = "font-weight: 600">All Meals</div></h4></strong>
 	</div>
