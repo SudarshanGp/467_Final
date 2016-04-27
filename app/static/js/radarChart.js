@@ -118,11 +118,13 @@ function RadarChart(id, data, options) {
 	   .enter()
 		.append("circle")
 		.attr("class", "gridCircle")
-		.attr("r", function(d, i){return radius/cfg.levels*d;})
+		.attr("r", 0)
 		.style("fill", "#CDCDCD")
 		.style("stroke", "#CDCDCD")
 		.style("fill-opacity", cfg.opacityCircles)
-		.style("filter" , "url(#glow)");
+		.style("filter" , "url(#glow)")
+	    .transition().duration(200)
+    	.attr("r", function(d, i){return radius/cfg.levels*d;});
 
 	//Text indicating at what % each level is
 	axisGrid.selectAll(".axisLabel")
@@ -236,22 +238,30 @@ function RadarChart(id, data, options) {
 	//Create the outlines
 	blobWrapper.append("path")
 		.attr("class", "radarStroke")
-		.attr("d", function(d,i) { return radarLine(d); })
+		//.attr("d", function(d,i) { return radarLine(d); })
+		//.style("stroke-width", cfg.strokeWidth + "px")
+    	.style("stroke", "#FFFFFF")
+		.style("fill", "none")
+		.style("filter" , "url(#glow)")
+	    .transition().duration(400)
 		.style("stroke-width", cfg.strokeWidth + "px")
 		.style("stroke", function(d,i) { return cfg.color(i); })
-		.style("fill", "none")
-		.style("filter" , "url(#glow)");
+		.attr("d", function(d,i) { return radarLine(d); });
 
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
 		.data(function(d,i) { return d; })
 		.enter().append("circle")
 		.attr("class", "radarCircle")
+		.attr("r", 0)
+		.attr("cx", 0)
+		.attr("cy", 0)
+		.style("fill", function(d,i,j) { return cfg.color(j); })
+		.style("fill-opacity", 0.8)
+	    .transition().duration(600)
 		.attr("r", cfg.dotRadius)
 		.attr("cx", function(d,i){ return rScale(d[value]) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("cy", function(d,i){ return rScale(d[value]) * Math.sin(angleSlice*i - Math.PI/2); })
-		.style("fill", function(d,i,j) { return cfg.color(j); })
-		.style("fill-opacity", 0.8);
+		.attr("cy", function(d,i){ return rScale(d[value]) * Math.sin(angleSlice*i - Math.PI/2); });
 
 	/////////////////////////////////////////////////////////
 	//////// Append invisible circles for tooltip ///////////
