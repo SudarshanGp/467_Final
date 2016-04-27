@@ -110,12 +110,12 @@ def make_json_data(people_data):
                                 if food_val > food_score[meal_type]["score"]:
                                     food_score[meal_type]["score"] = food_val
                                     food_score[meal_type]["name"] = meal["name"]
-                                    meal_food_intake[person][meal_type][nutrients] =  meal["name"] +", "+meal["value"]["Restaurant"] +" - " +str(food_val)
+                                    meal_food_intake[person][meal_type][nutrients] =  meal["name"] +", "+meal["value"]["Restaurant"] +": " +str(food_val)
 
                                 if food_val > food_score["total"]["score"]:
                                     food_score["total"]["score"] = food_val
                                     food_score["total"]["name"] = meal["name"]
-                                    meal_food_intake[person]["total"][nutrients] = meal["name"] +", "+meal["value"]["Restaurant"] +" - " +str(food_val)
+                                    meal_food_intake[person]["total"][nutrients] = meal["name"] +", "+meal["value"]["Restaurant"] +": " +str(food_val)
 
 
     for person, person_data in people_data.iteritems():
