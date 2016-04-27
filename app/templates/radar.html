@@ -18,10 +18,15 @@
         <script src="{{ url_for('static',filename='js/materialize.js') }}"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 		<style>
+			nav{
+				font-style: normal !important; 
+				font-size: 100px;
+			}
 			body {
 				font-family: 'Open Sans', sans-serif;
 				font-size: 11px;
 				font-weight: 300;
+				font-style: normal !important; 
 				fill: #242424;
 				text-align: center;
 {#				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;#}
@@ -94,7 +99,7 @@
                 <div class="nav-wrapper">
                     <a href="/" class="brand-logo center"><strong>Nutrition Analyzer</strong></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="/radar">View Food Trends</a></li>
+                        <li><a href="/radar" style="font-style: normal !important">View Food Trends</a></li>
                         <li><a href="/line">Explore Food Data</a></li>
                     </ul>
 
