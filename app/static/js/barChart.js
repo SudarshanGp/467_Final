@@ -57,22 +57,23 @@ d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, d
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
-
-
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.name); })
       .attr("width", x.rangeBand())
-      .attr("y", -50)
+      .attr("y", 0)
+      .attr("height",0)
       //.attr("height", 0)
       .transition()
-      .duration(200)
+      .duration(400)
       .delay(function (d, i) {
-        return i * 50;
+        return i * 300;
       })
       .attr("y", function(d) { return y(d.cost); })
       .attr("height",function(d) { return height - y(d.cost); });
+
+
 
 });
   function type(d) {
