@@ -35,9 +35,12 @@ var svg = d3.select("#barchart").append("svg")
 
 d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, data) {
     //console.log("in here");
+  var y_scale = d3.scale.linear()
+    .range([0, height]);
   if (error) console.log(error);
   x.domain(data.map(function(d) { return d.name; }));
   y.domain([0, d3.max(data, function(d) { console.log(d.cost);return d.cost; })]);
+  y_scale.domain([0, d3.max(data, function(d) { console.log(d.cost);return d.cost; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -62,16 +65,16 @@ d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, d
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.name); })
       .attr("width", x.rangeBand())
-      .attr("y", 0)
+      .attr("y", height)
       .attr("height",0)
       //.attr("height", 0)
       .transition()
-      .duration(400)
+      .duration(800)
       .delay(function (d, i) {
-        return i * 300;
+        return i * 400;
       })
-      .attr("y", function(d) { return y(d.cost); })
-      .attr("height",function(d) { return height - y(d.cost); });
+      .attr("y", function(d) { return height - y_scale(d.cost) })
+      .attr("height",function(d) { return y_scale(d.cost); });
 
 
 
