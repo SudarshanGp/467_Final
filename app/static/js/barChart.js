@@ -45,6 +45,7 @@ d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, d
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
+      .style("font-size", "12px")
       .call(xAxis);
 
   svg.append("g")
@@ -52,9 +53,11 @@ d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, d
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -18)
-      .attr("dy", "-11 em")
+      .attr("y", -30)
+
+      .attr("x",-100)
       .style("text-anchor", "end")
+      .style("font-size", "12px")
       .text("Cost in Dollars");
 
   svg.selectAll(".bar")
@@ -64,6 +67,7 @@ d3.tsv("../static/res/radar_data_"+file_path+"_cost.tsv", type,function(error, d
       .on('mouseout', tip.hide)
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.name); })
+
       .attr("width", x.rangeBand())
       .attr("y", height)
       .attr("height",0)
