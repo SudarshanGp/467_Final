@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
 
 body {
+    				font-family: 'Open Sans', sans-serif;
+
     min-width: 760px;
 }
 #line_header{
