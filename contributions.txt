@@ -1,4 +1,5 @@
-Nihal Shah: ?
+
+Nihal Shah: Worked on parsing data for radar chart `and helped with creating the radar chart
 
 
 Susan Jacob: Worked on write-up and worked on parallel lines visualization
