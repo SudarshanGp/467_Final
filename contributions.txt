@@ -1,5 +1,5 @@
 
-Nihal Shah: Worked on parsing data for radar chart `and helped with creating the radar chart
+Nihal Shah: Worked on parsing data for radar chart and helped with creating the radar chart
 
 
 Susan Jacob: Worked on write-up and worked on parallel lines visualization
@@ -8,7 +8,7 @@ Susan Jacob: Worked on write-up and worked on parallel lines visualization
 Aadhya Gupta: Worked on getting the food score for each food item, worked on creating and animating the radar chart
 
 
-Kanishk Thareja: ?
+Kanishk Thareja: Worked on the bar graph and helped with parcing the data 
 
 
 Sudarshan Govindaprasad: Worked on parsing our food intake information and created the parallel lines visualization 
