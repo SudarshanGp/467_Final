@@ -19,7 +19,7 @@ The radar graph can be filtered by meal types. For a given nutrient, the graph s
 [Modeling Expert Opinions on Food Healthiness: A Nutrition Metric]: http://www.people.hbs.edu/mbazerman/papers/08-082.pdf
 
 
-** Instructions to Run: **
+**Instructions to Run:**
 
 
 In order to run our visualization, run the command "python views.py" in the app folder.
