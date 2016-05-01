@@ -13,8 +13,16 @@ On this page you can view a Radar Graph where each colored shape represents a pe
 This page uses a Parallel Coordinate Line Graph to compare the nutritional values of various food items with their cost. The graph can be filtered by selecting a range for any of the nutritional values or cost. Below the graph is a table that displays the information of each line on the graph at a given time. The user can filter the graph to find interesting trends such as the higher protein content in expensive food items.
 
 **Additional Features:**
+
+
 The radar graph can be filtered by meal types. For a given nutrient, the graph showcases the intake as a percentage of its recommended value (according to the World Health Organization). We use the following study "[Modeling Expert Opinions on Food Healthiness: A Nutrition Metric]" to determine the healthiest food eaten by a person. 
 [Modeling Expert Opinions on Food Healthiness: A Nutrition Metric]: http://www.people.hbs.edu/mbazerman/papers/08-082.pdf
+
+
+** Instructions to Run: **
+
+
+In order to run our visualization, run the command "python views.py" in the app folder.
 
 
   [Modeling Expert Opinions on Food Healthiness: A Nutrition Metric]: http://www.people.hbs.edu/mbazerman/papers/08-082.pdf
